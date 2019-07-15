@@ -18,4 +18,4 @@
 
 - name: Install NFS Client
   apt: name=nfs-common state=present force=yes
-  when: ansible_distribution == "Ubuntu" and kube_install_nfs_client == "yes"
+  when: ansible_distribution == "Ubuntu" and kube_install_nfs_client
