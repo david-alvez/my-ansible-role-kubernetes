@@ -86,7 +86,7 @@
 
 - name: Install NFS Server
   apt: name=nfs-kernel-server state=present force=yes
-  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server == "yes"
+  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server
 
 - block:
     - copy:
@@ -104,7 +104,7 @@
         mode: '0777'
       notify: restart nfs-server
 
-  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server == "yes" and kube_nfs_server_exports != []
+  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server and kube_nfs_server_exports != []
 
 - name: Install Git package
   package: name=git
