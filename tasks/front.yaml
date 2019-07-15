@@ -160,7 +160,7 @@
         mode: '0777'
 
     - name: Restart nfs-server
-        service:
+      service: 
         name: nfs-kernel-server
         state: restarted
 
