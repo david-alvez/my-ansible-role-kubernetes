@@ -104,7 +104,7 @@
         mode: '0777'
       notify: restart nfs-server
 
-  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server and kube_nfs_server_exports != []
+  when: ansible_distribution == "Ubuntu" and kube_install_nfs_server and kube_nfs_server_exports_dir != []
 
 - name: Install Git package
   package: name=git
