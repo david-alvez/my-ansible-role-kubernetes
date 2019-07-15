@@ -26,3 +26,8 @@
   service:
     name: docker
     state: restarted
+
+- name: restart nfs-server
+  service:
+    name: nfs-kernel-server
+    state: restarted

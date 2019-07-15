@@ -89,7 +89,6 @@
   when: ansible_distribution == "Ubuntu" and kube_install_nfs_server == "yes"
 
 - block:
-    - name: Copy exports config file for NFS Server
     - copy:
         src: exports
         dest: /etc/exports
@@ -97,18 +96,13 @@
         group: root
         mode: '0644'
 
-    - name: Create dirs for current export file
     - file:
         path: /export/data
         state: directory
         owner: nobody
         group: nogroup
         mode: '0777'
-
-    - name: Restart nfs-server
-      service:
-        name: nfs-kernel-server
-        state: restarted
+      notify: restart nfs-server
 
   when: ansible_distribution == "Ubuntu" and kube_install_nfs_server == "yes" and kube_nfs_server_exports != []
 
