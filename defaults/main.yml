@@ -28,8 +28,8 @@ kube_api_server: 0.0.0.0
 # Array variables needed: [ namespace : "", name : "", label : "", capacity_storage : "", nfs_path : "" ]
 kube_persistent_volumes: []
 # A set of git repos and paths to be applied in the cluster. Following this format:
-# kube_apply_repos: [{repo: "https://github.com/kubernetes-incubator/metrics-server", version: "master", path: "deploy/1.8+/"}]
-kube_apply_repos: [{repo: "https://github.com/david-alvez/k8s-jupyter-cluster", version: "master", path: "deploy/integrated/"}]
+# kube_apply_repos: [{repo: "https://github.com/david-alvez/k8s-jupyter-cluster", version: "master", path: "deploy/integrated/"}]
+kube_apply_repos: []
 # Flag to set Metrics-Server to be installed
 kube_install_metrics: false
 # Flag to set the nginx ingress controller to be installed
@@ -40,3 +40,9 @@ kube_nvidia_support: false
 kube_nvidia_driver_version: "410"
 # Flag to set the kubeapps UI to be installed
 kube_install_kubeapps: false
+# Flag to install a NFS server in cluster's FrontEnd
+kube_install_nfs_server: true
+# Flag to create the exports configuration file for the NFS server
+kube_nfs_server_exports_dir: []
+# Flag to install a NFS client in cluster's WorkingNodes
+kube_install_nfs_client: true
